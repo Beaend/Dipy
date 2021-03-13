@@ -33,6 +33,7 @@ intents.members = True
 
 Dipy = commands.Bot(command_prefix=get_prefix, description=data['description'], intents=intents)
 
+
 @Dipy.event
 async def on_ready():
     print('Бот загружен как')
@@ -77,6 +78,7 @@ async def cogs_unload(ctx, extension_name: str):
     await ctx.send("{} отключена.".format(extension_name))
     print("Шестерёнка {0} отключена. {1}".format(extension_name, ctx.author.name))
 
+
 @Dipy.command()
 @commands.is_owner()
 async def cogs_reload(ctx, extension_name: str):
@@ -89,6 +91,7 @@ async def cogs_reload(ctx, extension_name: str):
     except (AttributeError, ImportError) as e:
         await ctx.send("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
+
 
 @Dipy.command()
 @commands.is_owner()
