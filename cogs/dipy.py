@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 import json
 
-with open('json/dipy.json', encoding="utf8") as discord_file:
-    discord_json = json.load(discord_file)
+with open('json/dipy.json', encoding="utf8") as bot_json:
+    data = json.load(bot_json)
 
 
 class BotCog(commands.Cog):
@@ -11,6 +11,11 @@ class BotCog(commands.Cog):
 
     def __init__(self, Dipy):
         self.Dipy = Dipy
+
+    @commands.command(name="инфо")
+    async def info(self, ctx):
+        """Вывод в чат описание бота"""
+        await ctx.send(data["description"])
 
     @commands.command()
     async def git(self, ctx):
