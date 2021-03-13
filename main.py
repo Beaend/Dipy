@@ -52,6 +52,7 @@ for extension in data_main["cogs-list"]:
 @Dipy.command()
 @commands.is_owner()
 async def stop(ctx):
+    """Принудительная остановка бота"""
     exit()
 
 
