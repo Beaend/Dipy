@@ -5,7 +5,7 @@
 ### Создавайте новые cogs - подключайте, модифицируйте и улучшайте своего бота.
 
 ## Начало работы
-### Установка linux
+### Установка в linux
 ```bash
 wget https://github.com/Beaend/Dipy/archive/0.1.0.tar.gz
 tar -cvzf 0.1.0.tar.gz
