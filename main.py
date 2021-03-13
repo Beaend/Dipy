@@ -2,9 +2,17 @@ import discord
 from discord.ext import commands
 import json
 
+# В этом файле вам править ничего не нужно.
 
-with open('json/dipy.json', encoding="utf8") as discord_file:
-    discord_json = json.load(discord_file)
+# Перейдите в каталог json/main.json
+# в token - введите токен своего бота
+# в cogs-list добавляйте новые шестерёнки, которые вы написали для бота
+
+with open('json/main.json', encoding="utf8") as main_json:
+    data_main = json.load(main_json)
+
+with open('json/dipy.json', encoding="utf8") as bot_json:
+    data = json.load(bot_json)
 
 
 def get_prefix(bot, message):
@@ -21,13 +29,7 @@ def get_prefix(bot, message):
 intents = discord.Intents.default()
 intents.members = True
 
-Dipy = commands.Bot(command_prefix=get_prefix, description=discord_json['description'], intents=intents)
-
-# Список шестерёнок
-initial_extensions = [
-    "cogs.dipy"
-]
-
+Dipy = commands.Bot(command_prefix=get_prefix, description=data['description'], intents=intents)
 
 @Dipy.event
 async def on_ready():
@@ -36,7 +38,7 @@ async def on_ready():
     print('------')
     await Dipy.change_presence(status=discord.Status.online, activity=discord.Game("!help"))
 
-for extension in initial_extensions:
+for extension in data_main["cogs-list"]:
     try:
         Dipy.load_extension(extension)
         print('Загрузка шестерёнки {}'.format(extension))
@@ -90,7 +92,7 @@ async def cogs_reload(ctx, extension_name: str):
 async def reload(ctx):
     """Перезагрузка всех шестерёнок."""
     try:
-        for extension in initial_extensions:
+        for extension in data_main["cogs-list"]:
             Dipy.unload_extension(extension)
             Dipy.load_extension(extension)
         await ctx.send("Все шестерёнки перезагружены.")
@@ -99,5 +101,4 @@ async def reload(ctx):
         await ctx.send("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
         return
 
-#TOKEN - меняете на свой "абрака.дабра1234567890" - не забудте про кавычки
-Dipy.run("TOKEN", reconnect=True)
+Dipy.run(data_main["token"], reconnect=True)
