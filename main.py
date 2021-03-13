@@ -5,8 +5,10 @@ import json
 # В этом файле вам править ничего не нужно.
 
 # Перейдите в каталог json/main.json
-# в token - введите токен своего бота
-# в cogs-list добавляйте новые шестерёнки, которые вы написали для бота
+# token - введите токен своего бота
+# cogs-list добавляйте новые шестерёнки, которые вы написали для бота
+# prefixes - список префиксов после которых бот будет считывать команды
+# prefix - префикс после которого бот будет срабатывать в личном сообщении
 
 with open('json/main.json', encoding="utf8") as main_json:
     data_main = json.load(main_json)
@@ -18,10 +20,10 @@ with open('json/dipy.json', encoding="utf8") as bot_json:
 def get_prefix(bot, message):
     """Настройка префиксов для бота"""
 
-    prefixes = ["!", "бот ", "dipy "]
+    prefixes = data_main["prefixes"]
 
     if not message.guild:
-        return "!"
+        return data_main["prefix"]
 
     return commands.when_mentioned_or(*prefixes)(bot, message)
 

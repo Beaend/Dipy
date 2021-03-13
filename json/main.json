@@ -2,5 +2,7 @@
   "token": "",
   "cogs-list": [
     "cogs.dipy"
-  ]
+  ],
+  "prefixes": ["!", "бот ", "dipy "],
+  "prefix": "!"
 }
