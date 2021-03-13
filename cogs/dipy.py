@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import json
 
+# Чтение данных из json файла и добавление в переменную data
 with open('json/dipy.json', encoding="utf8") as bot_json:
     data = json.load(bot_json)
 
