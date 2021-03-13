@@ -4,8 +4,8 @@
 #### *cogs - шестерёнки вашего бота*
 ### Создавайте новые cogs - подключайте, модифицируйте и улучшайте своего бота.
 
-##Начало работы
-###Установка linux
+## Начало работы
+### Установка linux
 ```bash
 wget https://github.com/Beaend/Dipy/archive/0.1.0.tar.gz
 tar -cvzf 0.1.0.tar.gz
@@ -16,16 +16,18 @@ source bin/activate
 pip install discord.py
 python main.py
 ```
-###После перезагрузки
+
+### После перезагрузки
 ```bash
 sd ~/Dipy
 source bin/activate
 python main.py
 ```
-###Для внесения изменений в cogs
+
+### Для внесения изменений в cogs
 !reload - в чате Discord
 
-###Для полного перезапуска
+### Для полного перезапуска
 !stop - в чате Discord
 ```bash
 python main.py
