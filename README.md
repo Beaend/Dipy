@@ -5,19 +5,24 @@
 ### Создавайте новые cogs - подключайте, модифицируйте и улучшайте своего бота.
 
 ## Начало работы
-### Установка в linux
+### Установка в linux (через терминал)
 ```bash
-wget https://github.com/Beaend/Dipy/archive/0.1.0.tar.gz
-tar -cvzf 0.1.0.tar.gz
-mv ~/0.1.0 ~/Dipy
+wget https://github.com/Beaend/Dipy/archive/0.2.0.tar.gz
+tar -cvzf 0.2.0.tar.gz
+mv ~/0.2.0 ~/Dipy
 sd ~/Dipy
 python3 -m venv .
 source bin/activate
 pip install discord.py
-python main.py
+```
+Перейти в папку Dipy/json и внести изменения в файл main.json
+```json
+{
+  "token": "Введите токен вашего бота (получается на сайте разработчиков)"
+}
 ```
 
-### После перезагрузки
+### Для запуска (через терминал)
 ```bash
 sd ~/Dipy
 source bin/activate
